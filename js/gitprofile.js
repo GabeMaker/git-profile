@@ -4,7 +4,7 @@ $(document).ready(function() {  // callback function
 
     e.preventDefault();
 
-    var url = 'https://api.github.com/users/' + $('input.username').val() + '?access_token=' + token;
+    var url = 'https://api.github.com/users/' + $('input.username').val() + '?access_token=' + key;
 
     var template = $('template').html();
 

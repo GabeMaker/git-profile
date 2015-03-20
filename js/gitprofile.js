@@ -1,8 +1,14 @@
 $(document).ready(function() {
 
-  $('.formclass').on('submit', function() {
+  $('.formclass').on('submit', function(e) {
 
     console.log("test button");
+    e.preventDefault();
+
+    $.get("https://api.github.com/users/GabeMaker", function(data) {
+      $('.divclass').html("username is " + data.login);
+      // console.log(data.login);
+    });
 
   });
 

@@ -2,12 +2,14 @@ $(document).ready(function() {
 
   $('.formclass').on('submit', function(e) {
 
-    console.log("test button");
+    var url = "https://api.github.com/users/" + $("input").val();
     e.preventDefault();
 
-    $.get("https://api.github.com/users/GabeMaker", function(data) {
-      $('.divclass').html("username is " + data.login);
-      // console.log(data.login);
+    $.get(url, function(data) {
+      var image = data.avatar_url
+      $('.divclass').html("<img src=" + image + "/>");
+      $('.divclass').append("<p>Followers: " + data.following + "</p>");
+      $( '.divclass' ).append("Repos: " + data.public_repos );
     });
 
   });
@@ -22,7 +24,7 @@ $(document).ready(function() {
 
 //     e.preventDefault();
 
-//     var url = 'https://api.github.com/users/' + $('input.username').val();
+    // var url = 'https://api.github.com/users/' + $('input.username').val();
 
 //     var template = $('template').html();
 
